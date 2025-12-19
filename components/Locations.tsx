@@ -29,7 +29,7 @@ const locations: LocationItem[] = [
 
 const Locations: React.FC = () => {
   return (
-    <section id="locations" className="py-20 bg-white scroll-mt-24">
+    <section id="locations" className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <p className="font-sans text-gold-600 tracking-widest uppercase text-sm mb-2">Getting There</p>

@@ -110,7 +110,7 @@ const Gallery: React.FC = () => {
   };
 
   return (
-    <section id="gallery" className="py-20 bg-white overflow-hidden scroll-mt-24">
+    <section id="gallery" className="py-20 bg-white overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-10 md:mb-16">
           <p className="font-sans text-gold-600 tracking-widest uppercase text-sm mb-2">Moments</p>

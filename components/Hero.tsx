@@ -1,7 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    // Target date: April 03, 2025 09:00:00 IST (UTC+5:30)
+    const targetDate = new Date("2026-04-03T09:00:00+05:30").getTime();
+
+    const calculateTimeLeft = () => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000),
+        });
+      } else {
+        // Date has passed
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      }
+    };
+
+    // Calculate immediately
+    calculateTimeLeft();
+    
+    // Update every second
+    const interval = setInterval(calculateTimeLeft, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="home" className="relative h-screen w-full overflow-hidden flex items-center justify-center">
       {/* Background Image */}
@@ -47,9 +84,29 @@ const Hero: React.FC = () => {
           <p className="font-sans text-lg md:text-xl font-light tracking-wide">
             April 03, 2025 • MGM Beach Resort
           </p>
+
+          {/* Countdown Timer */}
+          <div className="flex flex-wrap justify-center gap-4 md:gap-8 mt-6 mb-2">
+            {[
+              { label: 'Days', value: timeLeft.days },
+              { label: 'Hours', value: timeLeft.hours },
+              { label: 'Mins', value: timeLeft.minutes },
+              { label: 'Secs', value: timeLeft.seconds }
+            ].map((item, index) => (
+              <div key={index} className="flex flex-col items-center min-w-[60px]">
+                <span className="font-serif text-3xl md:text-4xl lg:text-5xl leading-none">
+                  {String(item.value).padStart(2, '0')}
+                </span>
+                <span className="text-[10px] md:text-xs uppercase tracking-widest text-gold-200 mt-2 font-medium">
+                  {item.label}
+                </span>
+              </div>
+            ))}
+          </div>
+
           <a
             href="#rsvp"
-            className="mt-8 px-8 py-3 border border-white/80 hover:bg-white hover:text-stone-900 transition-all duration-300 uppercase text-xs tracking-widest font-semibold"
+            className="mt-6 px-8 py-3 border border-white/80 hover:bg-white hover:text-stone-900 transition-all duration-300 uppercase text-xs tracking-widest font-semibold"
           >
             RSVP Now
           </a>

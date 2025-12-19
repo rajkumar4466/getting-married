@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const Story: React.FC = () => {
   return (
-    <section id="story" className="py-20 md:py-32 bg-stone-50 overflow-hidden scroll-mt-24">
+    <section id="story" className="py-20 md:py-32 bg-stone-50 overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 md:mb-24">
           <motion.h2
