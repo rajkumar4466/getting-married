@@ -122,7 +122,7 @@ const Events: React.FC = () => {
                      transition={{ delay: i * 0.1 }}
                      className={`bg-white shadow-md hover:shadow-xl transition-shadow duration-300 rounded-lg overflow-hidden flex flex-col ${item.featured ? 'md:col-span-2 lg:col-span-2' : ''}`}
                    >
-                     <div className={`relative overflow-hidden ${item.featured ? 'h-80 md:h-96' : 'h-64'}`}>
+                     <div className={`relative overflow-hidden ${item.featured ? 'h-100 md:h-120' : 'h-80'}`}>
                         <img src={item.img} alt={item.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                         <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded text-xs font-bold uppercase tracking-wider text-stone-800 flex items-center gap-1">
                            <Clock className="w-3 h-3" />

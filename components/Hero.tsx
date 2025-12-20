@@ -60,7 +60,7 @@ const Hero: React.FC = memo(() => {
     <section id="home" className="relative h-screen min-h-[600px] w-full overflow-hidden flex items-center justify-center bg-stone-900">
       
       <div 
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat grayscale blur-sm transform-gpu"
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat blur-sm transform-gpu"
         style={{ 
             backgroundImage: `url(${backgroundImg})`,
             // This ensures the image stays fixed even during bounces/scrolls
@@ -88,8 +88,8 @@ const Hero: React.FC = memo(() => {
           transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
           className="font-serif text-6xl md:text-8xl lg:text-9xl mb-6 text-white leading-none"
         >
-          Sruthi <br className="md:hidden" />
-          <span className="text-4xl md:text-6xl align-middle mx-2 font-light text-gold-300">&</span> 
+          Sruthi<br className="md:hidden" />
+          <span className="text-4xl md:text-6xl align-middle mx-2 font-light text-gold-300"> & </span> 
           Rahul
         </motion.h1>
 
