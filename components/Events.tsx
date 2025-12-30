@@ -68,7 +68,7 @@ const events: EventSection[] = [
     items: [
       {
         title: "Muhurtham",
-        time: "8:45 AM",
+        time: "9:00 AM",
         desc: "The sacred moment where we tie the knot surrounded by blessings.",
         img: weddingImg,
         featured: true,
